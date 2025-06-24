@@ -27,12 +27,6 @@ public class fibonacci
 }
 
 
-
-
-
-
-
-
 2.Prime numbers
 
 import java.util.Scanner;
