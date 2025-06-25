@@ -1,0 +1,1831 @@
+aNotepad
+
+java lab.txt
+Share Bookmark Save Copy
+VPNBook
+FIBONACCI :
+ 
+
+import java.util.*;
+
+class fibonacci
+
+{
+
+public static int rec_fibo(int n)
+
+{
+
+if(n<=1)
+
+return n;
+
+else
+
+return rec_fibo(n-1)+rec_fibo(n-2);
+
+}
+
+public static int non_rec_fibo(int n)
+
+{
+
+int first=0,second=1,result=0;
+
+for(int i=2;i<=n;i++)
+
+{
+
+result=first+second;
+
+first=second;
+
+second=result;
+
+}
+
+return result;
+
+}
+
+public static void main(String args[])
+
+{
+
+int n;
+
+Scanner s=new Scanner(System.in);
+
+System.out.print("enter the number");
+
+n=s.nextInt();
+
+int recursive=rec_fibo(n);
+
+int non_recursive=non_rec_fibo(n);
+
+System.out.println("Recursive"+n+"the number is"+recursive);
+
+System.out.println("Non recursive"+n+"the number is"+non_recursive);
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PRIME :
+ 
+
+import java.lang.*;
+
+import java.util.*;
+
+class prime
+
+{
+
+public static void main(String args[])
+
+{
+
+int n;
+
+Scanner s=new Scanner(System.in);
+
+System.out.println("Enter the Nth number:");
+
+n=s.nextInt();
+
+System.out.println("The prime numbers upto" +n+ "are");
+
+for(int i=2;i<=n;i++)
+
+{
+
+int flag=1;
+
+for(int j=2;j<=Math.sqrt(i);j++)
+
+{
+
+if(i%j==0)
+
+{
+
+flag=0;
+
+break;
+
+}
+
+}
+
+if(flag==1)
+
+System.out.println(i+"  ");
+
+}
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PALINDROME :
+ 
+
+import java.util.*;
+
+import java.lang.*;
+
+class str_pallindrome
+
+{
+
+public static void main(String args[])
+
+{
+
+String str,rev="";
+
+Scanner s=new Scanner(System.in);
+
+System.out.println("Enter a string:");
+
+str=s.nextLine();
+
+int n=str.length();
+
+for(int i=n-1;i>=0;i--)
+
+{
+
+rev=rev+str.charAt(i);
+
+}
+
+if(str.toLowerCase().equals(rev.toLowerCase()))
+
+{
+
+System.out.println("Given string is pallindrome");
+
+}
+
+else
+
+System.out.println("Given string is not pallindrome");
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NAME SORTER :
+ 
+
+import java.util.*;
+
+public class Namesorter
+
+{
+
+public static void main(String args[])
+
+{
+
+Scanner s = new Scanner(System.in);
+
+System.out.println("enter the number of names");
+
+int n=s.nextInt();
+
+s.nextLine();
+
+String[] names=new String[n];
+
+System.out.println("enter the names:");
+
+for(int i=0;i<n;i++)
+
+{
+
+names[i]=s.nextLine();
+
+}
+
+Arrays.sort(names);
+
+System.out.println("\nsorted list in ascending order:");
+
+for(String name : names)
+
+{
+
+System.out.println(name);
+
+}
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+POLYMORPHISM :
+ 
+
+class Shape
+
+{
+
+void area()
+
+{
+
+System.out.println("Area of shapes");
+
+}
+
+}
+
+class Circle extends Shape
+
+{
+
+@Override
+
+void area()
+
+{
+
+System.out.println("Area of circle:pi*r^2");
+
+}
+
+}
+
+class Rectangle extends Shape
+
+{
+
+@Override
+
+void area()
+
+{
+
+System.out.println("Area of ractangle:length*width");
+
+}
+
+}
+
+public class Polymorphism
+
+{
+
+public static void main(String args[])
+
+{
+
+Shape shape1=new Circle();
+
+Shape shape2=new Rectangle();
+
+shape1.area();
+
+shape2.area();
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+6(A). USER DEFINED PACKAGES :
+
+ 
+
+FILE : arithmetic.java
+
+ 
+
+package mathoperations;
+
+public class Arithmetic
+
+{
+
+public int add(int a,int b)
+
+{
+
+return a+b;
+
+}
+
+public int subtract(int a,int b)
+
+{
+
+return a-b;
+
+}
+
+public int multiply(int a,int b)
+
+{
+
+return a*b;
+
+}
+
+public double division(int a,int b)
+
+{
+
+if(b==0)
+
+{
+
+throw new ArithmeticException("Division by zero is not allowed");
+
+}
+
+return(double)a/b;
+
+}
+
+}
+
+ 
+
+ 
+
+FILE : create_package.java
+
+ 
+
+import java.util.*;
+
+import mathoperations.Arithmetic;
+
+public class Create_Packages
+
+{
+
+public static void main(String args[])
+
+{
+
+Arithmetic ar=new Arithmetic();
+
+Scanner s=new Scanner(System.in);
+
+System.out.println("enter two values:");
+
+int a=s.nextInt();
+
+int b=s.nextInt();
+
+System.out.println("Addition:"+ar.add(a,b));
+
+System.out.println("subtraction:"+ar.subtract(a,b));
+
+System.out.println("multiplication:"+ar.multiply(a,b));
+
+System.out.println("division:"+ar.division(a,b));
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+6(B). PREDEFINED PACAKGES :
+
+ 
+
+import java.util.Arrays;
+
+import java.util.Scanner;
+
+public class Predefinedpackage
+
+{
+
+public static void main(String args[])
+
+{
+
+Scanner s=new Scanner(System.in);
+
+System.out.println("enter the number of elements:");
+
+int n=s.nextInt();
+
+int[] numbers=new int[n];
+
+System.out.println("enter"+n+"integers");
+
+for(int i=0;i<n;i++)
+
+{
+
+numbers[i]=s.nextInt();
+
+}
+
+System.out.println("original array:"+Arrays.toString(numbers));
+
+Arrays.sort(numbers);
+
+System.out.println("sorted array:"+Arrays.toString(numbers));
+
+System.out.println("enter a number to search");
+
+int key=s.nextInt();
+
+int index=Arrays.binarySearch(numbers,key);
+
+if(index>=0)
+
+{
+
+System.out.println("elements found at index:"+index);
+
+}
+
+else{
+
+System.out.println("element not found");
+
+}
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+7.STRINGTOKENIZER :
+
+ 
+
+import java.util.Scanner;
+
+import java.util.StringTokenizer;
+
+class IntSumTokenizer
+
+{
+
+public static void main(String args[])
+
+{
+
+Scanner s= new Scanner(System.in);
+
+System.out.println("enter a line of integers seperated by the spaces:");
+
+String input=s.nextLine();
+
+StringTokenizer token=new StringTokenizer(input);
+
+int sum=0;
+
+System.out.println("the integers are:");
+
+while(token.hasMoreTokens())
+
+{
+
+int num =Integer.parseInt(token.nextToken());
+
+System.out.println(num);
+
+sum=sum+num;
+
+}
+
+System.out.println("sum of all integers:"+sum);
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+8.FILE EXISTS/READABLE/WRITABLE USING FILE INPUT STREAM CLASS :
+
+ 
+
+import java.io.File;
+
+import java.io.FileInputStream;
+
+import java.io.IOException;
+
+import java.util.Scanner;
+
+public class FileInfo
+
+{
+
+public static void main(String args[])
+
+{
+
+Scanner scanner=new Scanner(System.in);
+
+System.out.println("enter the file name:");
+
+String fileName=scanner.nextLine();
+
+File file=new File(fileName);
+
+if(file.exists())
+
+{
+
+System.out.println("the file exists");
+
+if(file.canRead())
+
+{
+
+System.out.println("the file is readable");
+
+}
+
+else
+
+{
+
+System.out.println("the file is not readable");
+
+}
+
+if(file.canWrite())
+
+{
+
+System.out.println("the file is writable");
+
+}
+
+else
+
+{
+
+System.out.println("the file is not writable");
+
+}
+
+if(file.isDirectory())
+
+{
+
+System.out.println("the file is a directory:");
+
+}
+
+else if(file.isFile())
+
+{
+
+System.out.println("the file is a regular file");
+
+}
+
+else
+
+{
+
+System.out.println("the file is of unknown type");
+
+}
+
+System.out.println("the length of the file is in bytes:"+file.length());
+
+try(FileInputStream fis =new FileInputStream(file))
+
+{
+
+System.out.println("File content:");
+
+int content;
+
+while((content=fis.read())!=-1)
+
+{
+
+System.out.println((char)content);
+
+}
+
+}
+
+catch(IOException e)
+
+{
+
+System.out.println("error reading the file:"+e.getMessage());
+
+}
+
+}
+
+else
+
+{
+
+System.out.println("File does not exits");
+
+}
+
+scanner.close();
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+9.FILE DEMO - NO OF CHARACTERS,LINES AND WORDS IN TEXT FILE :
+
+ 
+
+import java.io.*;
+
+class FileDemo
+
+{
+
+public static void main(String args[])
+
+{
+
+try
+
+{
+
+int lines=0,chars=0,words=0;
+
+int code=0;
+
+FileInputStream fis =new FileInputStream("sample.txt");
+
+while(fis.available()!=0)
+
+{
+
+code=fis.read();
+
+if(code!=10)
+
+chars++;
+
+if(code==32)
+
+words++;
+
+if(code==13)
+
+{
+
+lines++;
+
+words++;
+
+}
+
+}
+
+System.out.println("no of characters="+chars);
+
+System.out.println("no of words="+(words+1));
+
+System.out.println("no of lines="+(lines+1));
+
+fis.close();
+
+}
+
+catch(FileNotFoundException e)
+
+{
+
+System.out.println("cannot find the specified file..");
+
+}
+
+catch(IOException i){
+
+System.out.print("cannot read file");
+
+}
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+10. FILE DISPLAY APP-APPLET TO DSPLAY CONTENT OF FILE :
+
+ 
+
+import javax.swing.*;
+
+import java.awt.*;
+
+import java.io.*;
+
+ 
+
+public class FileDisplayApp {
+
+public static void main(String[] args) {
+
+SwingUtilities.invokeLater(() -> {
+
+new FileViewer("sample.txt"); // Change the filename as needed
+
+});
+
+}
+
+}
+
+ 
+
+class FileViewer extends JFrame {
+
+JTextArea textArea;
+
+ 
+
+public FileViewer(String fileName) {
+
+setTitle("File Viewer");
+
+setSize(500, 300);
+
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+setLayout(new BorderLayout());
+
+ 
+
+textArea = new JTextArea();
+
+textArea.setEditable(false);
+
+add(new JScrollPane(textArea), BorderLayout.CENTER);
+
+ 
+
+displayFileContent(fileName);
+
+ 
+
+setVisible(true);
+
+}
+
+ 
+
+private void displayFileContent(String fileName) {
+
+try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+
+String line;
+
+while ((line = reader.readLine()) != null) {
+
+textArea.append(line + "\n");
+
+}
+
+} catch (IOException e) {
+
+textArea.setText("Error reading file: " + e.getMessage());
+
+}
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+11.SIMPLE CALCULATOR USING A GRID LAYOUT :
+
+ 
+
+import javax.swing.*;
+
+import java.awt.*;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+ 
+
+public class Calculator extends JFrame implements ActionListener {
+
+private JTextField display;
+
+private double num1, num2, result;
+
+private char operator;
+
+ 
+
+public Calculator() {
+
+setTitle("Simple Calculator");
+
+setSize(280, 350);
+
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+setLayout(new BorderLayout());
+
+ 
+
+display = new JTextField();
+
+display.setEditable(false);
+
+display.setFont(new Font("Arial", Font.BOLD, 18));
+
+display.setHorizontalAlignment(JTextField.RIGHT);
+
+display.setPreferredSize(new Dimension(280, 50));
+
+add(display, BorderLayout.NORTH);
+
+ 
+
+JPanel panel = new JPanel();
+
+panel.setLayout(new GridLayout(5, 3, 5, 5));
+
+ 
+
+String[] buttons = {"7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "%", "=", "+", "C"};
+
+ 
+
+for (String text : buttons) {
+
+JButton button = new JButton(text);
+
+button.setFont(new Font("Arial", Font.BOLD, 16));
+
+button.addActionListener(this);
+
+panel.add(button);
+
+}
+
+ 
+
+add(panel, BorderLayout.CENTER);
+
+}
+
+ 
+
+@Override
+
+public void actionPerformed(ActionEvent e) {
+
+String command = e.getActionCommand();
+
+ 
+
+if (command.charAt(0) >= '0' && command.charAt(0) <= '9') {
+
+display.setText(display.getText() + command);
+
+} else if (command.equals("C")) {
+
+display.setText("");
+
+num1 = num2 = result = 0;
+
+} else if (command.equals("=")) {
+
+num2 = Double.parseDouble(display.getText());
+
+switch (operator) {
+
+case '+': result = num1 + num2; break;
+
+case '-': result = num1 - num2; break;
+
+case '*': result = num1 * num2; break;
+
+case '/': result = num1 / num2; break;
+
+case '%': result = num1 % num2; break;
+
+}
+
+display.setText(String.valueOf(result));
+
+} else {
+
+num1 = Double.parseDouble(display.getText());
+
+operator = command.charAt(0);
+
+display.setText("");
+
+}
+
+}
+
+ 
+
+public static void main(String[] args) {
+
+SwingUtilities.invokeLater(() -> {
+
+Calculator calculator = new Calculator();
+
+calculator.setVisible(true);
+
+});
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+12.HANDLING MOUSE EVENTS :
+
+ 
+
+import javax.swing.*;
+
+import java.awt.*;
+
+import java.awt.event.*;
+
+public class MouseEventOutputExample extends JFrame implements MouseListener, MouseMotionListener
+
+{
+
+JLabel statusLabel;
+
+public MouseEventOutputExample()
+
+{
+
+setTitle("Mouse Event Output Example");
+
+setSize(500, 400);
+
+setLayout(new BorderLayout());
+
+statusLabel = new JLabel("Move or click the mouse inside the window.");
+
+statusLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+add(statusLabel, BorderLayout.SOUTH);
+
+addMouseListener(this);
+
+addMouseMotionListener(this);
+
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+setVisible(true);
+
+}
+
+public void mouseClicked(MouseEvent e)
+
+{
+
+String msg = "Mouse Clicked at (" + e.getX() + ", " + e.getY() + ")";
+
+statusLabel.setText(msg);
+
+System.out.println(msg);
+
+}
+
+ 
+
+public void mousePressed(MouseEvent e)
+
+{
+
+String msg = "Mouse Pressed at (" + e.getX() + ", " + e.getY() + ")";
+
+statusLabel.setText(msg);
+
+System.out.println(msg);
+
+}
+
+public void mouseReleased(MouseEvent e)
+
+{
+
+String msg = "Mouse Released at (" + e.getX() + ", " + e.getY() + ")";
+
+statusLabel.setText(msg);
+
+System.out.println(msg);
+
+}
+
+public void mouseEntered(MouseEvent e)
+
+{
+
+String msg = "Mouse Entered the window";
+
+statusLabel.setText(msg);
+
+System.out.println(msg);
+
+}
+
+public void mouseExited(MouseEvent e)
+
+{
+
+String msg = "Mouse Exited the window";
+
+statusLabel.setText(msg);
+
+System.out.println(msg);
+
+}
+
+public void mouseMoved(MouseEvent e)
+
+{
+
+String msg = "Mouse Moved to (" + e.getX() + ", " + e.getY() + ")";
+
+statusLabel.setText(msg);
+
+System.out.println(msg);
+
+}
+
+public void mouseDragged(MouseEvent e)
+
+{
+
+String msg = "Mouse Dragged to (" + e.getX() + ", " + e.getY() + ")";
+
+statusLabel.setText(msg);
+
+System.out.println(msg);
+
+}
+
+public static void main(String[] args)
+
+{
+
+new MouseEventOutputExample();
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+13.LIFE CYCLE OF A THREAD :
+
+ 
+
+class MyThread extends Thread {
+
+@Override
+
+public void run() {
+
+try {
+
+System.out.println("Thread is running...");
+
+Thread.sleep(1000);  // Thread goes into TIMED_WAITING
+
+System.out.println("Thread woke up and finishing...");
+
+} catch (InterruptedException e) {
+
+System.out.println("Thread interrupted.");
+
+}
+
+}
+
+}
+
+ 
+
+public class ThreadLifeCycleDemo {
+
+public static void main(String[] args) {
+
+MyThread thread = new MyThread();
+
+ 
+
+// Thread is in NEW state
+
+System.out.println("Thread state after creation: " + thread.getState());
+
+ 
+
+thread.start();  // Thread moves to RUNNABLE state
+
+System.out.println("Thread state after start(): " + thread.getState());
+
+ 
+
+try {
+
+// Give some time for the thread to go into sleep
+
+Thread.sleep(100);
+
+System.out.println("Thread state while sleeping: " + thread.getState());
+
+ 
+
+// Wait for thread to finish
+
+thread.join();
+
+} catch (InterruptedException e) {
+
+System.out.println("Main thread interrupted.");
+
+}
+
+ 
+
+// Thread is TERMINATED after finishing run()
+
+System.out.println("Thread state after completion: " + thread.getState());
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+14.PIECHART- DESIGN UR OWN USER INTERFACE(WITH SWINGS & AWT):
+
+ 
+
+import javax.swing.*;
+
+import java.awt.*;
+
+import java.awt.event.*;
+
+import java.util.ArrayList;
+
+public class PieChartApp extends JFrame
+
+{
+
+private JTextField labelField, valueField;
+
+private JButton addButton;
+
+private ArrayList<String> labels = new ArrayList<>();
+
+private ArrayList<Integer> values = new ArrayList<>();
+
+private PieChartPanel chartPanel;
+
+public PieChartApp() {
+
+setTitle("Pie Chart Creator");
+
+setSize(600, 500);
+
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+setLayout(new BorderLayout());
+
+JPanel inputPanel = new JPanel();
+
+inputPanel.setLayout(new FlowLayout());
+
+inputPanel.add(new JLabel("Label:"));
+
+labelField = new JTextField(10);
+
+inputPanel.add(labelField);
+
+inputPanel.add(new JLabel("Value:"));
+
+valueField = new JTextField(5);
+
+inputPanel.add(valueField);
+
+addButton = new JButton("Add Slice");
+
+inputPanel.add(addButton);
+
+add(inputPanel, BorderLayout.NORTH);
+
+chartPanel = new PieChartPanel();
+
+add(chartPanel, BorderLayout.CENTER);
+
+addButton.addActionListener(new ActionListener()
+
+{
+
+public void actionPerformed(ActionEvent e)
+
+{
+
+String label = labelField.getText();
+
+String valueText = valueField.getText();
+
+try {
+
+int value = Integer.parseInt(valueText);
+
+if (value <= 0) throw new NumberFormatException();
+
+labels.add(label);
+
+values.add(value);
+
+chartPanel.setData(labels, values);
+
+chartPanel.repaint();
+
+labelField.setText("");
+
+valueField.setText("");
+
+} catch (NumberFormatException ex) {
+
+JOptionPane.showMessageDialog(PieChartApp.this,
+
+"Please enter a positive integer for the value.",
+
+"Invalid Input",
+
+JOptionPane.ERROR_MESSAGE);
+
+}
+
+}
+
+});
+
+setVisible(true);
+
+}
+
+public static void main(String[] args)
+
+{
+
+new PieChartApp();
+
+}
+
+}
+
+class PieChartPanel extends JPanel
+
+{
+
+private ArrayList<String> labels = new ArrayList<>();
+
+private ArrayList<Integer> values = new ArrayList<>();
+
+private Color[] colors = {
+
+Color.RED, Color.BLUE, Color.GREEN, Color.ORANGE,
+
+Color.MAGENTA, Color.CYAN, Color.PINK, Color.YELLOW
+
+};
+
+public void setData(ArrayList<String> labels, ArrayList<Integer> values)
+
+{
+
+this.labels = labels;
+
+this.values = values;
+
+}
+
+public void paintComponent(Graphics g)
+
+{
+
+super.paintComponent(g);
+
+if (values.size() == 0) return;
+
+int total = 0;
+
+for (int value : values) total += value;
+
+int startAngle = 0;
+
+int centerX = getWidth() / 2 - 150;
+
+int centerY = getHeight() / 2 - 150;
+
+for (int i = 0; i < values.size(); i++)
+
+{
+
+int angle = (int) Math.round(360.0 * values.get(i) / total);
+
+g.setColor(colors[i % colors.length]);
+
+g.fillArc(centerX, centerY, 300, 300, startAngle, angle);
+
+startAngle += angle;
+
+}
+
+int legendX = centerX + 320;
+
+int legendY = centerY;
+
+for (int i = 0; i < labels.size(); i++)
+
+{
+
+g.setColor(colors[i % colors.length]);
+
+g.fillRect(legendX, legendY + i * 25, 20, 20);
+
+g.setColor(Color.BLACK);
+
+g.drawString(labels.get(i) + " (" + values.get(i) + ")", legendX + 25, legendY + 15 + i * 25);
+
+}
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+15. QUEUE UING USER DEFIND HANDLING :
+
+ 
+
+import java.util.*;
+
+ 
+
+class QueueException extends Exception {
+
+public QueueException(String message) {
+
+super(message);
+
+}
+
+}
+
+ 
+
+class Queue {
+
+private int front, rear, size;
+
+private int capacity;
+
+private int[] array;
+
+ 
+
+public Queue(int capacity) {
+
+this.capacity = capacity;
+
+this.front = this.size = 0;
+
+this.rear = capacity - 1;
+
+this.array = new int[capacity];
+
+}
+
+ 
+
+public boolean isFull() {
+
+return (size == capacity);
+
+}
+
+ 
+
+public boolean isEmpty() {
+
+return (size == 0);
+
+}
+
+ 
+
+public void enqueue(int item) throws QueueException {
+
+if (isFull()) {
+
+throw new QueueException("Queue is full, cannot enqueue");
+
+}
+
+rear = (rear + 1) % capacity;
+
+array[rear] = item;
+
+size++;
+
+System.out.println(item + " enqueued to queue");
+
+}
+
+ 
+
+public int dequeue() throws QueueException {
+
+if (isEmpty()) {
+
+throw new QueueException("Queue is empty, cannot dequeue");
+
+}
+
+int item = array[front];
+
+front = (front + 1) % capacity;
+
+size--;
+
+return item;
+
+}
+
+ 
+
+public int front() throws QueueException {
+
+if (isEmpty()) {
+
+throw new QueueException("Queue is empty, no front element");
+
+}
+
+return array[front];
+
+}
+
+ 
+
+public int rear() throws QueueException {
+
+if (isEmpty()) {
+
+throw new QueueException("Queue is empty, no rear element");
+
+}
+
+return array[rear];
+
+}
+
+}
+
+ 
+
+public class QueueDemo {
+
+public static void main(String[] args) {
+
+Scanner scanner = new Scanner(System.in);
+
+System.out.print("Enter the queue capacity: ");
+
+int capacity = scanner.nextInt();
+
+Queue queue = new Queue(capacity);
+
+ 
+
+while (true) {
+
+try {
+
+System.out.println("\nQueue Operations:");
+
+System.out.println("1. Enqueue");
+
+System.out.println("2. Dequeue");
+
+System.out.println("3. Front Element");
+
+System.out.println("4. Rear Element");
+
+System.out.println("5. Exit");
+
+System.out.print("Enter your choice: ");
+
+int choice = scanner.nextInt();
+
+ 
+
+switch (choice) {
+
+case 1:
+
+System.out.print("Enter element to enqueue: ");
+
+int item = scanner.nextInt();
+
+queue.enqueue(item);
+
+break;
+
+case 2:
+
+System.out.println(queue.dequeue() + " dequeued from queue");
+
+break;
+
+case 3:
+
+System.out.println("Front item is " + queue.front());
+
+break;
+
+case 4:
+
+System.out.println("Rear item is " + queue.rear());
+
+break;
+
+case 5:
+
+System.out.println("Exiting...");
+
+scanner.close();
+
+return;
+
+default:
+
+System.out.println("Invalid choice, try again.");
+
+}
+
+} catch (QueueException e) {
+
+System.out.println("Exception: " + e.getMessage());
+
+}
+
+}
+
+}
+
+}
